@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+    function getLoveTrianglesCount(preferences = []) {
+        let count = 0;
+        for (let i=0;i < preferences.length; i++){
+            let value = preferences[i];
+            //alert ("value = " + (i+1) + "  =  " + preferences[i]);
+            //alert ("preferences[value] = " + value + "    " + preferences[value - 1]);
+            let value1 = preferences[value-1];
+           // alert ("value1 = " + value1 + "  = " + preferences[value1-1]);
+
+
+
+            if (i+1 === preferences[value1-1] ){
+                //alert((i+1) + " =  " + preferences[value1-1]);
+                count += 1;
+                alert ("count = " + count);
+                preferences[i] = NaN;
+                preferences[value-1] = NaN;
+                preferences[value1-1] = NaN;
+               // alert (value1-1 + "  " + preferences[preferences[value1-1]]);
+
+            }
+
+        }
+return count;
+    }
+let preferences =[3, 9, 12, 6, 13, 16, 15, 3, 14, 5, 4, 1, 10, 2, 4, 4, 10, 14, 11] ;
+alert (getLoveTrianglesCount(preferences));
+   /* function unique(arr) {
+        var obj = {};
+
+        for (var i = 0; i < arr.length; i++) {
+            var str = arr[i];
+            obj[str] = true; // запомнить строку в виде свойства объекта
+        }
+
+        return Object.keys(obj); // или собрать ключи перебором для IE8-
+    }*/
+
+    //alert (getLoveTrianglesCount([2, 3, 1, 5, 6, 4, 8, 9, 7, 0, 10, 18, 20, 14, 7, 17, 8, 14, 10, 1]));
+</script>
+</body>
+</html>
